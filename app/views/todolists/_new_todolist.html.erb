@@ -1,0 +1,16 @@
+<%= form_for (@todolist) do |f| %>
+
+<div class="form-title">
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+</div>
+<div class="form-description">
+	<%= f.label :description %>
+	<%= f.text_area :description %>
+</div>
+ 
+<button id="button" type="submit" class="btn btn-primary btn-lg center-block" >
+New todolist
+</button>
+
+<% end %>

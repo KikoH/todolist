@@ -1,0 +1,8 @@
+<%= render 'new_todolist' %>
+
+<% @todolists.each do |list| %>
+<div id="lists">
+	<p id="list-title"> <%= list.title %> </p>
+	<p id="list-description"> <%= list.description %> </p>
+</div>
+<% end %>
