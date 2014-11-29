@@ -1,14 +1,16 @@
-<%= form_tag todolists_path, method: :get, authentication: false, id: 'search-form' do %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Search" %>
-<% end %>
+<div id="search-lists">
+	<%= form_tag todolists_path, method: :get, authentication: false, id: 'search-form' do %>
+	<%= text_field_tag :search, params[:search] %>
+	<%= submit_tag "Search" %>
+	<% end %>
+</div>
 
 <%= render 'new_todolist' %>
 
 <div id="todolists">
-<%= render :partial => 'todolist' %>
+	<%= render :partial => 'todolist' %>
 </div>
 
 <script type="text/javascript">
-  
+
 </script>

@@ -2,19 +2,33 @@
 // All this logic will automatically be available in application.js.
 
 $(document).on('ready page:load', function() {
-   $('#search-form').submit(function(event) {
-    event.preventDefault();
-    var searchValue = $('#search').val();
+	$('#search-form').submit(function(event) {
+		event.preventDefault();
+		var searchValue = $('#search').val();
 
-    $.ajax({
-      url: '/todolists?search=' + searchValue,
-      type: 'GET',
-      dataType: 'html'
-    }).done(function(data){
-      $('#todolists').html(data);
-    });
-  });
+		$.getScript('/todolists?search=' + searchValue);
+	});
 });
+
+
+// ---------Using .get
+
+// $.get('/todolists?search=' + searchValue)
+// .done(function(data){
+// 	console.log(data);
+// 	$('#todolists').html(data);
+// });
+
+
+// ---------Ajax
+
+// $.ajax({
+//       url: '/todolists?search=' + searchValue,
+//       type: 'GET',
+//       dataType: 'html'
+//     }).done(function(data){
+//       $('#todolists').html(data);
+//     });
 
 
 // --------Vanilla javascript

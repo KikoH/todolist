@@ -7,10 +7,12 @@ class TodolistsController < ApplicationController
 			@todolists = Todolist.all
 		end
 
-		if request.xhr?
-			render @todolists
-		end
 		@todolist = Todolist.new
+
+		respond_to do |format|
+			format.html
+			format.js
+		end
 	end
 
 	def new

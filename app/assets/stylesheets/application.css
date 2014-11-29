@@ -44,6 +44,12 @@ body {
  	background-color: green;
  }
 
+ #search-lists {
+ 	width: 250px;
+ 	float: right;
+ 	margin-bottom: 40px;
+ }
+
  #lists {
  	background-color: #787878 ;
  	margin: auto;
@@ -64,4 +70,9 @@ body {
  	background-color: white;
  	margin: 10px;
  	height: 160px;
+ }
+
+ #list-delete {
+ 	background-color: red;
+ 	width: 80px;
  }
