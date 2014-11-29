@@ -1,7 +1,15 @@
 class TodolistsController < ApplicationController
 
 	def index
-		@todolists = Todolist.all
+		@todolists = if params[:search]
+			Todolist.where("LOWER(title) LIKE LOWER(?)", "%#{params[:search]}%")
+		else
+			@todolists = Todolist.all
+		end
+
+		if request.xhr?
+			render @todolists
+		end
 		@todolist = Todolist.new
 	end
 
@@ -17,6 +25,26 @@ class TodolistsController < ApplicationController
 		else
 			render :new
 		end
+	end
+
+	def edit
+		@todolist = Todolist.find(params[:id])
+	end
+
+	def update
+		@todolist = Todolist.find(params[:id])
+		if @todolist
+			@todolist.update_attributes(todolist_params)
+			redirect_to todolists_path(@todolist)
+		else
+			render :edit
+		end
+	end
+
+	def destroy
+		@todolist = Todolist.find(params[:id])
+		@todolist.destroy
+		redirect_to todolists_path
 	end
 
 	private
