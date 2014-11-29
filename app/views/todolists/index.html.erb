@@ -1,8 +1,14 @@
+<%= form_tag todolists_path, method: :get, authentication: false, id: 'search-form' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
 <%= render 'new_todolist' %>
 
-<% @todolists.newest_first.each do |list| %>
-<div id="lists">
-	<p id="list-title"> <%= list.title %> </p>
-	<p id="list-description"> <%= list.description %> </p>
+<div id="todolists">
+<%= render :partial => 'todolist' %>
 </div>
-<% end %>
+
+<script type="text/javascript">
+  
+</script>
