@@ -50,7 +50,7 @@ body {
  	margin-bottom: 40px;
  }
 
- #lists {
+ .css_lists {
  	background-color: #787878 ;
  	margin: auto;
  	width: 600px;

@@ -8,7 +8,13 @@ $(document).on('ready page:load', function() {
 
 		$.getScript('/todolists?search=' + searchValue);
 	});
-});
+
+	// $('#button').on('click', function (event) {
+	// 	event.preventDefault();
+
+	// 	$.getScript('/todolists');
+	// });
+    });
 
 
 // ---------Using .get

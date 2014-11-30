@@ -20,12 +20,17 @@ class TodolistsController < ApplicationController
 	end
 
 	def create
+		@todolists = Todolist.all
 		@todolist = Todolist.new(todolist_params)
 
-		if @todolist.save
-			redirect_to todolists_path
-		else
-			render :new
+		respond_to do |format|
+			if @todolist.save
+				format.html { redirect_to todolists_path }
+				format.js {}
+			else
+				format.html { render :new }
+				format.js {}
+			end
 		end
 	end
 
