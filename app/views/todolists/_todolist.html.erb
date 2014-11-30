@@ -2,8 +2,9 @@
 	<% @todolists.newest_first.each do |list| %>
 	<% if list.id.present? %>
 	<div class="css_lists">
-	<p id="list-title" default=""> <%= list.title %> </p>
+		<p id="list-title">. <%= list.title %> </p>
 		<p id="list-description"> <%= list.description %> </p>
+		<p id="list-checkbox"> <%= list.completed %> </p>
 		<button id="list-delete" type="submit" class="btn btn-primary pull-right" >
 			<%= link_to "Delete", list , method: :delete, data: {confirm: "Are you sure you want to delete this list?"} %>
 		</button>

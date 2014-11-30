@@ -40,11 +40,17 @@ class TodolistsController < ApplicationController
 
 	def update
 		@todolist = Todolist.find(params[:id])
-		if @todolist
-			@todolist.update_attributes(todolist_params)
-			redirect_to todolists_path(@todolist)
-		else
-			render :edit
+		respond_to do |format|
+			if @todolist
+				format.html {
+					@todolist.update_attributes(todolist_params)
+					redirect_to todolists_path(@todolist)
+				}
+				format.js {}
+			else
+				format.html {render :edit}
+				format.js {}
+			end
 		end
 	end
 
@@ -56,6 +62,6 @@ class TodolistsController < ApplicationController
 
 	private
 	def todolist_params
-		params.require(:todolist).permit(:title, :description, :due)
+		params.require(:todolist).permit(:title, :description, :completed)
 	end
 end

@@ -36,6 +36,11 @@ body {
  	text-align: center;
  }
 
+ #list-checkbox {
+ 	background-color: red;
+ 	width: 100px;
+ }
+
  #todolist_description {
  	width: 300px;
  }
