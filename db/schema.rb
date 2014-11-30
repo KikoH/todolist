@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141130031906) do
+ActiveRecord::Schema.define(version: 20141130055852) do
 
   create_table "todolists", force: true do |t|
     t.string   "title"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20141130031906) do
     t.datetime "due"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "completed"
+    t.boolean  "completed",   default: false
   end
 
 end

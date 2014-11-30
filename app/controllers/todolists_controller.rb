@@ -4,7 +4,7 @@ class TodolistsController < ApplicationController
 		@todolists = if params[:search]
 			Todolist.where("LOWER(title) LIKE LOWER(?)", "%#{params[:search]}%")
 		else
-			@todolists = Todolist.all
+			Todolist.all
 		end
 
 		@todolist = Todolist.new
@@ -40,17 +40,18 @@ class TodolistsController < ApplicationController
 
 	def update
 		@todolist = Todolist.find(params[:id])
-		respond_to do |format|
-			if @todolist
-				format.html {
-					@todolist.update_attributes(todolist_params)
-					redirect_to todolists_path(@todolist)
-				}
-				format.js {}
-			else
-				format.html {render :edit}
-				format.js {}
-			end
+		#respond_to do |format|
+		if @todolist.update_attribute(:completed, true)
+		#		format.html {
+
+		redirect_to todolists_path
+		#		}
+		#		format.js {}
+	else
+		render :edit
+				#format.html {render :edit}
+				#format.js {}
+			#end
 		end
 	end
 

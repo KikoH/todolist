@@ -18,7 +18,12 @@
 body {
 	background-color: #F5F5F5;
 }
- .form-title {
+
+#done {
+	margin:auto;
+	width: 200px;
+}
+.form-title {
  	background-color: cyan;
  	width: 300px;
  	margin: auto;
